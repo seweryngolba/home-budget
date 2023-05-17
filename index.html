@@ -1,13 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Home Budget</title>
   </head>
   <body>
+    <div class="container">
+      <div class="logo">
+        <img src="./assets/Subtract.png" />
+        <h1 class="logo-text">HOME BUDGET</h1>
+      </div>
+      <div class="warning">
+        <h2 class="wrn-text">Możesz jeszcze wydać 987 złotych</h2>
+      </div>
+      <div class="inpts">
+        <div class="left">
+          <div class="ltop">
+            <h3 class="lname">PRZYCHODY</h3>
+            <div class="l-inputs">
+              <input id="earnings" type="text" placeholder="Nazwa przychodu" />
+              <input id="amount" type="number" placeholder="Kwota" />
+              <button>DODAJ</button>
+            </div>
+          </div>
+          <div class="lbottom"></div>
+        </div>
+        <div class="right">
+          <div class="rtop">
+            <h3 class="rname">WYDATKI</h3>
+            <div class="r-inputs">
+              <input id="spendings" type="text" placeholder="Nazwa wydatku" />
+              <input id="amount" type="number" placeholder="Kwota" />
+              <button>DODAJ</button>
+            </div>
+          </div>
+          <div class="rbottom"></div>
+        </div>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>

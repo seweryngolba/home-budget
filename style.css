@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-bg-color: #cccccc;
+  --primaryColor: #d9d9d9;
+  --secondaryColor: #909090;
+  --accentColor: #3f3f3f;
+}
+
+body {
+  background: var(--main-bg-color);
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  width: 100%;
+}
+
+.container {
+  max-width: 860px;
+  height: 100vh;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  gap: 10px;
+}
+
+img {
+  width: 20px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  gap: 5px;
+  margin-left: -20px;
+}
+
+.logo-text {
+  font-size: 20px;
+  width: 50px;
+  line-height: 18px;
+}
+
+.warning {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 90px;
+  border-radius: 10px;
+  background: var(--primaryColor);
+}
+
+.wrn-text {
+  font-size: 16px;
+  width: 200px;
+  text-align: center;
+}
+
+.ltop,
+.rtop {
+  height: 60px;
+  width: 280px;
+  background: var(--secondaryColor);
+  border-radius: 10px;
+}
+
+h3 {
+  margin-left: 6px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#earnings,
+#spendings {
+  width: 140px;
+  height: 25px;
+}
+
+#amount {
+  width: 60px;
+  height: 25px;
+}
+
+.l-inputs,
+.r-inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+button {
+  width: 60px;
+  height: 25px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accentColor);
+  color: #fff;
+  font-size: 10px;
+}
