@@ -14,13 +14,10 @@
 body {
   background: var(--main-bg-color);
   font-family: "Poppins", sans-serif;
-  height: 100vh;
-  width: 100%;
 }
 
 .container {
   max-width: 860px;
-  height: 100vh;
   margin: 20px auto;
   display: flex;
   align-items: center;
@@ -48,19 +45,31 @@ img {
 }
 
 .warning {
+  width: 280px;
+  height: 60px;
+  border-radius: 10px;
+  background: var(--primaryColor);
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 280px;
-  height: 90px;
-  border-radius: 10px;
-  background: var(--primaryColor);
 }
 
 .wrn-text {
-  font-size: 16px;
-  width: 200px;
+  font-size: 12px;
+  width: 140px;
+  height: 60px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inpts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .ltop,
@@ -73,7 +82,7 @@ img {
 
 h3 {
   margin-left: 6px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
 }
 
@@ -81,11 +90,22 @@ h3 {
 #spendings {
   width: 140px;
   height: 25px;
+  border-radius: 10px;
+  border: none;
 }
 
 #amount {
   width: 60px;
   height: 25px;
+  border-radius: 10px;
+  border: none;
+}
+
+#earnings::placeholder,
+#spendings::placeholder,
+#amount::placeholder {
+  padding-left: 4px;
+  font-size: 12px;
 }
 
 .l-inputs,
@@ -96,7 +116,7 @@ h3 {
   gap: 5px;
 }
 
-button {
+.add {
   width: 60px;
   height: 25px;
   border-radius: 10px;
@@ -104,4 +124,63 @@ button {
   background: var(--accentColor);
   color: #fff;
   font-size: 10px;
+}
+
+.lbottom,
+.rbottom {
+  width: 280px;
+  height: 260px;
+  background: var(--primaryColor);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-top: -8px;
+  z-index: -1;
+}
+
+li {
+  font-size: 10px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 260px;
+  margin-left: 10px;
+  padding-top: 10px;
+}
+
+.libutton {
+  width: 50px;
+  height: 20px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accentColor);
+  color: #fff;
+  font-size: 8px;
+  font-weight: bold;
+}
+
+.earning-list {
+  padding-top: 6px;
+}
+
+.summary {
+  font-size: 12px;
+  margin-left: 6px;
+  padding-bottom: 10px;
+}
+
+.left,
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.btns {
+  margin-right: -4px;
 }
