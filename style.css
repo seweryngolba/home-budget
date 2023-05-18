@@ -279,6 +279,7 @@ li {
   }
   h3 {
     font-size: 18px;
+    margin-left: 10px;
   }
   #earnings,
   #spendings {
@@ -303,7 +304,7 @@ li {
   .lbottom,
   .rbottom {
     width: 395px;
-    height: 400px;
+    max-height: 600px;
   }
   li {
     font-size: 14px;
@@ -315,9 +316,18 @@ li {
     font-size: 12px;
   }
   .btns {
-    margin-right: -18px;
+    margin-right: -24px;
   }
   .summary {
     font-size: 18px;
+    margin-left: 10px;
+  }
+  .l-inputs,
+  .r-inputs {
+    gap: 12px;
+  }
+  .logo {
+    margin-left: -60px;
+    padding-bottom: 10px;
   }
 }
