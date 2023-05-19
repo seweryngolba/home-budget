@@ -6,8 +6,25 @@ const newEarning = () => {
   const earn = document.querySelector("#earnings").value;
   const amount = Number(document.querySelector("#amount").value);
   const li = document.createElement("li");
-  earnCont.appendChild(li);
+  const newDiv = document.createElement("div");
+  const editButton = document.createElement("button");
+  const deleteButton = document.createElement("button");
+  li.classList.add("list");
+  newDiv.classList.add("btns");
+  editButton.classList.add("libutton");
+  editButton.innerText = "EDYTUJ";
+  deleteButton.classList.add("libutton");
+  deleteButton.innerText = "USUŃ";
+  newDiv.appendChild(editButton);
+  newDiv.appendChild(deleteButton);
   li.innerHTML = `${earn} - ${amount} zł`;
+  li.appendChild(newDiv);
+  earnCont.appendChild(li);
+  deleteButton.addEventListener("click", () => {
+    li.remove();
+  });
+  document.querySelector("#earnings").value = "";
+  document.querySelector("#amount").value = "";
 };
 
 const newSpending = () => {

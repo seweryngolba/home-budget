@@ -76,7 +76,8 @@ img {
   height: 60px;
   width: 280px;
   background: var(--secondaryColor);
-  border-radius: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 h3 {
@@ -84,6 +85,11 @@ h3 {
   padding: 4px 0;
   font-size: 12px;
   font-weight: bold;
+}
+
+input:focus,
+input:valid {
+  padding-left: 6px;
 }
 
 #earnings,
@@ -106,7 +112,6 @@ h3 {
 #spendings::placeholder,
 #amount::placeholder,
 #amount2::placeholder {
-  padding-left: 4px;
   font-size: 12px;
 }
 
@@ -126,6 +131,7 @@ h3 {
   background: var(--accentColor);
   color: #fff;
   font-size: 10px;
+  cursor: pointer;
 }
 
 .lbottom,
@@ -138,11 +144,9 @@ h3 {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  margin-top: -8px;
-  z-index: -1;
 }
 
-li {
+.list {
   font-size: 10px;
   font-weight: bold;
   display: flex;
@@ -162,6 +166,7 @@ li {
   color: #fff;
   font-size: 8px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .earning-list {
@@ -184,6 +189,10 @@ li {
 
 .btns {
   margin-right: -4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -243,7 +252,7 @@ li {
     width: 320px;
     height: 300px;
   }
-  li {
+  .list {
     font-size: 12px;
     width: 320px;
   }
@@ -297,7 +306,8 @@ li {
   }
   #earnings::placeholder,
   #spendings::placeholder,
-  #amount::placeholder #amount2::placeholder {
+  #amount::placeholder,
+  #amount2::placeholder {
     font-size: 16px;
   }
   .add {
@@ -311,7 +321,7 @@ li {
     width: 395px;
     height: 400px;
   }
-  li {
+  .list {
     font-size: 14px;
     width: 350px;
   }
