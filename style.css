@@ -94,7 +94,8 @@ h3 {
   border: none;
 }
 
-#amount {
+#amount,
+#amount2 {
   width: 60px;
   height: 25px;
   border-radius: 10px;
@@ -103,7 +104,8 @@ h3 {
 
 #earnings::placeholder,
 #spendings::placeholder,
-#amount::placeholder {
+#amount::placeholder,
+#amount2::placeholder {
   padding-left: 4px;
   font-size: 12px;
 }
@@ -221,13 +223,15 @@ li {
     width: 160px;
     height: 30px;
   }
-  #amount {
+  #amount,
+  #amount2 {
     width: 80px;
     height: 30px;
   }
   #earnings::placeholder,
   #spendings::placeholder,
-  #amount::placeholder {
+  #amount::placeholder,
+  #amount2::placeholder {
     font-size: 14px;
   }
   .add {
@@ -286,13 +290,14 @@ li {
     width: 180px;
     height: 40px;
   }
-  #amount {
+  #amount,
+  #amount2 {
     width: 90px;
     height: 40px;
   }
   #earnings::placeholder,
   #spendings::placeholder,
-  #amount::placeholder {
+  #amount::placeholder #amount2::placeholder {
     font-size: 16px;
   }
   .add {
@@ -304,7 +309,7 @@ li {
   .lbottom,
   .rbottom {
     width: 395px;
-    max-height: 600px;
+    height: 400px;
   }
   li {
     font-size: 14px;
