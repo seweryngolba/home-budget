@@ -54,6 +54,16 @@ img {
   align-items: center;
 }
 
+.red {
+  border: 2px solid red;
+  background: rgba(255, 0, 0, 0.219);
+}
+
+.green {
+  border: 2px solid green;
+  background: rgba(0, 128, 0, 0.219);
+}
+
 .wrn-text {
   font-size: 12px;
   width: 140px;

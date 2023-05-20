@@ -19,8 +19,8 @@
         <img src="./assets/Subtract.png" />
         <h1 class="logo-text">HOME BUDGET</h1>
       </div>
-      <div class="warning">
-        <h2 class="wrn-text">Sprawdź ile możesz wydać !</h2>
+      <div id="moneydisplay" class="warning">
+        <h2 id="total" class="wrn-text">Możesz wydać 0 zł</h2>
       </div>
       <div class="inpts">
         <div class="left">
@@ -33,30 +33,10 @@
             </div>
           </div>
           <div class="lbottom">
-            <ul id="learn" class="earning-list">
-              <!-- <li class="list">
-                Pensja - 3000zł
-                <div class="btns">
-                  <button class="libutton">EDYTUJ</button>
-                  <button class="libutton">USUŃ</button>
-                </div>
-              </li>
-              <li class="list">
-                Sprzedaż na allegro - 500zł
-                <div class="btns">
-                  <button class="libutton">EDYTUJ</button>
-                  <button class="libutton">USUŃ</button>
-                </div>
-              </li>
-              <li class="list">
-                Zlecenia - 2000zł
-                <div class="btns">
-                  <button class="libutton">EDYTUJ</button>
-                  <button class="libutton">USUŃ</button>
-                </div>
-              </li> -->
-            </ul>
-            <h2 class="summary">Suma przychodów: 9990zł</h2>
+            <ul id="learn" class="earning-list"></ul>
+            <h2 class="summary">
+              Suma przychodów: <span id="sum1">0</span> zł
+            </h2>
           </div>
         </div>
         <div class="right">
@@ -69,30 +49,8 @@
             </div>
           </div>
           <div class="rbottom">
-            <ul id="pspend" class="earning-list">
-              <!-- <li class="list">
-                Pensja - 3000zł
-                <div class="btns">
-                  <button class="libutton">EDYTUJ</button>
-                  <button class="libutton">USUŃ</button>
-                </div>
-              </li>
-              <li class="list">
-                Sprzedaż na allegro - 500zł
-                <div class="btns">
-                  <button class="libutton">EDYTUJ</button>
-                  <button class="libutton">USUŃ</button>
-                </div>
-              </li>
-              <li class="list">
-                Zlecenia - 2000zł
-                <div class="btns">
-                  <button class="libutton">EDYTUJ</button>
-                  <button class="libutton">USUŃ</button>
-                </div>
-              </li> -->
-            </ul>
-            <h2 class="summary">Suma wydatków: 9990zł</h2>
+            <ul id="pspend" class="earning-list"></ul>
+            <h2 class="summary">Suma wydatków: <span id="sum2">0</span> zł</h2>
           </div>
         </div>
       </div>
