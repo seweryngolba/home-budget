@@ -100,12 +100,22 @@ input:valid {
   border: none;
 }
 
+.e-input {
+  width: 120px;
+  height: 25px;
+}
+
 #amount,
 #amount2 {
   width: 60px;
   height: 25px;
   border-radius: 10px;
   border: none;
+}
+
+.e-amount {
+  width: 60px;
+  height: 25px;
 }
 
 #earnings::placeholder,
@@ -267,6 +277,17 @@ input:valid {
   .summary {
     font-size: 14px;
   }
+  .e-input {
+    width: 150px;
+    height: 25px;
+  }
+  .e-amount {
+    width: 74px;
+    height: 25px;
+  }
+  .e-button {
+    margin-right: 16px;
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -344,5 +365,16 @@ input:valid {
   .logo {
     margin-left: -60px;
     padding-bottom: 10px;
+  }
+  .e-input {
+    width: 180px;
+    height: 25px;
+  }
+  .e-amount {
+    width: 90px;
+    height: 25px;
+  }
+  .e-button {
+    margin-right: -10px;
   }
 }
