@@ -35,7 +35,7 @@ img {
   justify-content: center;
   align-items: end;
   gap: 5px;
-  margin-left: -20px;
+  margin-left: -34px;
 }
 
 .logo-text {
@@ -219,6 +219,9 @@ input:valid {
   img {
     width: 30px;
   }
+  .logo {
+    margin-left: -64px;
+  }
   .logo-text {
     font-size: 28px;
     line-height: 26px;
@@ -373,7 +376,7 @@ input:valid {
     gap: 12px;
   }
   .logo {
-    margin-left: -60px;
+    margin-left: -100px;
     padding-bottom: 10px;
   }
   .e-input {
