@@ -8,7 +8,7 @@ const sumEarnings = document.querySelector("#earnings-sum");
 
 const updateSumEarn = (earnAmount) => {
   currentSumEarnings += earnAmount;
-  sumEarnings.innerHTML = currentSumEarnings;
+  sumEarnings.textContent = currentSumEarnings;
   updateTotal();
 };
 
@@ -31,14 +31,14 @@ const newEarning = () => {
   earnLi.classList.add("list");
   earnDiv.classList.add("btns");
   editEarningButton.classList.add("libutton");
-  editEarningButton.innerText = "EDYTUJ";
+  editEarningButton.textContent = "EDYTUJ";
   deleteEarningButton.classList.add("libutton");
-  deleteEarningButton.innerText = "USUŃ";
+  deleteEarningButton.textContent = "USUŃ";
 
   earnDiv.appendChild(editEarningButton);
   earnDiv.appendChild(deleteEarningButton);
 
-  earnLi.innerHTML = `${earn} - ${earnAmount} zł`;
+  earnLi.textContent = `${earn} - ${earnAmount} zł`;
   earnLi.appendChild(earnDiv);
 
   earnCont.appendChild(earnLi);
@@ -49,12 +49,12 @@ const newEarning = () => {
   });
 
   editEarningButton.addEventListener("click", () => {
-    earnLi.innerHTML = "";
+    earnLi.textContent = "";
 
     editEarnInput.value = earn;
     editEarnAmountInput.value = originalAmount;
 
-    saveEarningButton.innerText = "ZAPISZ";
+    saveEarningButton.textContent = "ZAPISZ";
     saveEarningButton.classList.add("libutton");
 
     earnLi.appendChild(editEarnInput);
@@ -69,7 +69,7 @@ const newEarning = () => {
       const updatedEarn = editEarnInput.value;
       const updatedAmountEarn = Number(editEarnAmountInput.value);
 
-      earnLi.innerHTML = `${updatedEarn} - ${updatedAmountEarn} zł`;
+      earnLi.textContent = `${updatedEarn} - ${updatedAmountEarn} zł`;
       earnLi.appendChild(earnDiv);
 
       updateSumEarn(updatedAmountEarn - originalAmount);
@@ -89,7 +89,7 @@ const sumSpendings = document.querySelector("#spendings-sum");
 
 const updateSumSpend = (spendAmount) => {
   currentSumSpendings += spendAmount;
-  sumSpendings.innerHTML = currentSumSpendings;
+  sumSpendings.textContent = currentSumSpendings;
   updateTotal();
 };
 
@@ -112,14 +112,14 @@ const newSpending = () => {
   spendLi.classList.add("list");
   spendDiv.classList.add("btns");
   editSpendingButton.classList.add("libutton");
-  editSpendingButton.innerText = "EDYTUJ";
+  editSpendingButton.textContent = "EDYTUJ";
   deleteSpendingButton.classList.add("libutton");
-  deleteSpendingButton.innerText = "USUŃ";
+  deleteSpendingButton.textContent = "USUŃ";
 
   spendDiv.appendChild(editSpendingButton);
   spendDiv.appendChild(deleteSpendingButton);
 
-  spendLi.innerHTML = `${spend} - ${spendAmount} zł`;
+  spendLi.textContent = `${spend} - ${spendAmount} zł`;
   spendLi.appendChild(spendDiv);
   spendCont.appendChild(spendLi);
 
@@ -129,12 +129,12 @@ const newSpending = () => {
   });
 
   editSpendingButton.addEventListener("click", () => {
-    spendLi.innerHTML = "";
+    spendLi.textContent = "";
 
     editSpendInput.value = spend;
     editSpendAmountInput.value = originalSpend;
 
-    saveSpendingButton.innerText = "ZAPISZ";
+    saveSpendingButton.textContent = "ZAPISZ";
     saveSpendingButton.classList.add("libutton");
 
     spendLi.appendChild(editSpendInput);
@@ -149,7 +149,7 @@ const newSpending = () => {
       const updatedSpend = editSpendInput.value;
       const updatedAmountSpend = Number(editSpendAmountInput.value);
 
-      spendLi.innerHTML = `${updatedSpend} - ${updatedAmountSpend} zł`;
+      spendLi.textContent = `${updatedSpend} - ${updatedAmountSpend} zł`;
       spendLi.appendChild(spendDiv);
 
       updateSumSpend(updatedAmountSpend - originalSpend);
@@ -168,14 +168,14 @@ const updateTotal = () => {
   const total = parseFloat(currentSumEarnings - currentSumSpendings);
 
   if (total > 0) {
-    totalElement.innerHTML = `Możesz jeszcze wydać ${total} złotych`;
+    totalElement.textContent = `Możesz jeszcze wydać ${total} złotych`;
     moneyBorder.classList.remove("red");
     moneyBorder.classList.add("green");
   } else if (total === 0) {
-    totalElement.innerHTML = `Bilans wynosi 0 złotych`;
+    totalElement.textContent = `Bilans wynosi 0 złotych`;
     moneyBorder.classList.remove("red", "green");
   } else {
-    totalElement.innerHTML = `Bilans jest ujemny. Jesteś na minusie ${total} złotych`;
+    totalElement.textContent = `Bilans jest ujemny. Jesteś na minusie ${total} złotych`;
     moneyBorder.classList.add("red");
     moneyBorder.classList.remove("green");
   }
