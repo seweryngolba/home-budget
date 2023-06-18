@@ -7,8 +7,8 @@ let currentSumEarnings = 0;
 const sumEarnings = document.querySelector("#earnings-sum");
 
 const updateSumEarn = (earnAmount) => {
-  currentSumEarnings += earnAmount;
-  sumEarnings.textContent = currentSumEarnings;
+  currentSumEarnings += parseFloat(earnAmount);
+  sumEarnings.textContent = currentSumEarnings.toFixed(2);
   updateTotal();
 };
 
@@ -17,7 +17,17 @@ const newEarning = () => {
   const earnInput = document.querySelector("#earnings");
   const earnAmountInput = document.querySelector("#earn-amount");
   const earn = earnInput.value;
-  const earnAmount = Number(earnAmountInput.value);
+  const earnAmount = parseFloat(earnAmountInput.value.replace(",", "."));
+
+  if (!earn || earnAmount <= 0 || isNaN(earnAmount)) {
+    alert(
+      "Sprawdź czy nazwa oraz kwota przychodu została wpisana. Kwota przychodu musi być liczbą wiekszą od zera"
+    );
+    earnInput.value = "";
+    earnAmountInput.value = "";
+    return;
+  }
+
   const earnLi = document.createElement("li");
   const earnDiv = document.createElement("div");
   const editEarningButton = document.createElement("button");
@@ -38,7 +48,7 @@ const newEarning = () => {
   earnDiv.appendChild(editEarningButton);
   earnDiv.appendChild(deleteEarningButton);
 
-  earnLi.textContent = `${earn} - ${earnAmount} zł`;
+  earnLi.textContent = `${earn} - ${earnAmount.toFixed(2)} zł`;
   earnLi.appendChild(earnDiv);
 
   earnCont.appendChild(earnLi);
@@ -69,6 +79,13 @@ const newEarning = () => {
       const updatedEarn = editEarnInput.value;
       const updatedAmountEarn = Number(editEarnAmountInput.value);
 
+      if (!updatedEarn || updatedAmountEarn <= 0 || isNaN(updatedAmountEarn)) {
+        alert(
+          "Sprawdź czy nazwa oraz kwota przychodu została wpisana. Kwota przychodu musi być liczbą wiekszą od zera"
+        );
+        return;
+      }
+
       earnLi.textContent = `${updatedEarn} - ${updatedAmountEarn} zł`;
       earnLi.appendChild(earnDiv);
 
@@ -88,8 +105,8 @@ let currentSumSpendings = 0;
 const sumSpendings = document.querySelector("#spendings-sum");
 
 const updateSumSpend = (spendAmount) => {
-  currentSumSpendings += spendAmount;
-  sumSpendings.textContent = currentSumSpendings;
+  currentSumSpendings += parseFloat(spendAmount);
+  sumSpendings.textContent = currentSumSpendings.toFixed(2);
   updateTotal();
 };
 
@@ -98,7 +115,17 @@ const newSpending = () => {
   const spendInput = document.querySelector("#spendings");
   const spendAmountInput = document.querySelector("#spend-amount");
   const spend = spendInput.value;
-  const spendAmount = Number(spendAmountInput.value);
+  const spendAmount = parseFloat(spendAmountInput.value.replace(",", "."));
+
+  if (!spend || spendAmount <= 0 || isNaN(spendAmount)) {
+    alert(
+      "Sprawdź czy nazwa oraz kwota wydatku została wpisana. Kwota wydatku musi być liczbą wiekszą od zera"
+    );
+    spendInput.value = "";
+    spendAmountInput.value = "";
+    return;
+  }
+
   const spendLi = document.createElement("li");
   const spendDiv = document.createElement("div");
   const editSpendingButton = document.createElement("button");
@@ -119,7 +146,7 @@ const newSpending = () => {
   spendDiv.appendChild(editSpendingButton);
   spendDiv.appendChild(deleteSpendingButton);
 
-  spendLi.textContent = `${spend} - ${spendAmount} zł`;
+  spendLi.textContent = `${spend} - ${spendAmount.toFixed(2)} zł`;
   spendLi.appendChild(spendDiv);
   spendCont.appendChild(spendLi);
 
@@ -147,9 +174,24 @@ const newSpending = () => {
 
     saveSpendingButton.addEventListener("click", () => {
       const updatedSpend = editSpendInput.value;
-      const updatedAmountSpend = Number(editSpendAmountInput.value);
+      const updatedAmountSpend = parseFloat(
+        editSpendAmountInput.value.replace(",", ".")
+      );
 
-      spendLi.textContent = `${updatedSpend} - ${updatedAmountSpend} zł`;
+      if (
+        !updatedSpend ||
+        updatedAmountSpend <= 0 ||
+        isNaN(updatedAmountSpend)
+      ) {
+        alert(
+          "Sprawdź czy nazwa oraz kwota wydatku została wpisana. Kwota wydatku musi być liczbą wiekszą od zera"
+        );
+        return;
+      }
+
+      spendLi.textContent = `${updatedSpend} - ${updatedAmountSpend.toFixed(
+        2
+      )} zł`;
       spendLi.appendChild(spendDiv);
 
       updateSumSpend(updatedAmountSpend - originalSpend);
@@ -168,14 +210,18 @@ const updateTotal = () => {
   const total = parseFloat(currentSumEarnings - currentSumSpendings);
 
   if (total > 0) {
-    totalElement.textContent = `Możesz jeszcze wydać ${total} złotych`;
+    totalElement.textContent = `Możesz jeszcze wydać ${total.toFixed(
+      2
+    )} złotych`;
     moneyBorder.classList.remove("red");
     moneyBorder.classList.add("green");
   } else if (total === 0) {
     totalElement.textContent = `Bilans wynosi 0 złotych`;
     moneyBorder.classList.remove("red", "green");
   } else {
-    totalElement.textContent = `Bilans jest ujemny. Jesteś na minusie ${total} złotych`;
+    totalElement.textContent = `Bilans jest ujemny. Jesteś na minusie ${Math.abs(
+      total
+    ).toFixed(2)} złotych`;
     moneyBorder.classList.add("red");
     moneyBorder.classList.remove("green");
   }

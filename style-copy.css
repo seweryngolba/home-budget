@@ -165,6 +165,7 @@ input:valid {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  overflow: auto;
 }
 
 .list {
@@ -175,7 +176,7 @@ input:valid {
   justify-content: space-between;
   width: 260px;
   margin-left: 10px;
-  padding-top: 10px;
+  padding: 10px 0;
 }
 
 .libutton {
