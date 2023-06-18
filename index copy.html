@@ -20,7 +20,7 @@
         <h1 class="logo-text">HOME BUDGET</h1>
       </div>
       <div id="moneydisplay" class="balance-display">
-        <h2 id="total" class="balance-text">Możesz wydać 0 zł</h2>
+        <h2 id="total" class="balance-text">Bilans wynosi 0 złotych</h2>
       </div>
       <div class="spendings-and-earnings">
         <div class="earnings-box">
@@ -34,7 +34,7 @@
                 placeholder="Nazwa przychodu"
               />
               <input
-                id="amount"
+                id="earn-amount"
                 class="earning-amount"
                 type="number"
                 placeholder="Kwota"
@@ -45,7 +45,7 @@
           <div class="new-earnings-added">
             <ul id="learn" class="earning-list"></ul>
             <h2 class="summary">
-              Suma przychodów: <span id="sum1">0</span> zł
+              Suma przychodów: <span id="earnings-sum">0</span> zł
             </h2>
           </div>
         </div>
@@ -60,7 +60,7 @@
                 placeholder="Nazwa wydatku"
               />
               <input
-                id="amount2"
+                id="spend-amount"
                 class="spending-amount"
                 type="number"
                 placeholder="Kwota"
@@ -70,7 +70,9 @@
           </div>
           <div class="new-spendings-added">
             <ul id="pspend" class="earning-list"></ul>
-            <h2 class="summary">Suma wydatków: <span id="sum2">0</span> zł</h2>
+            <h2 class="summary">
+              Suma wydatków: <span id="spendings-sum">0</span> zł
+            </h2>
           </div>
         </div>
       </div>

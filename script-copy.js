@@ -3,169 +3,169 @@ const spendButton = document.querySelector("#btnspend");
 const totalElement = document.querySelector("#total");
 const moneyBorder = document.querySelector("#moneydisplay");
 
-let currentSum = 0;
-const sum = document.querySelector("#sum1");
+let currentSumEarnings = 0;
+const sumEarnings = document.querySelector("#earnings-sum");
 
-const updateSum = (amount) => {
-  currentSum += amount;
-  sum.innerHTML = currentSum;
+const updateSumEarn = (earnAmount) => {
+  currentSumEarnings += earnAmount;
+  sumEarnings.innerHTML = currentSumEarnings;
   updateTotal();
 };
 
 const newEarning = () => {
   const earnCont = document.querySelector("#learn");
   const earnInput = document.querySelector("#earnings");
-  const amountInput = document.querySelector("#amount");
+  const earnAmountInput = document.querySelector("#earn-amount");
   const earn = earnInput.value;
-  const amount = Number(amountInput.value);
-  const li = document.createElement("li");
-  const newDiv = document.createElement("div");
-  const editButton = document.createElement("button");
-  const deleteButton = document.createElement("button");
+  const earnAmount = Number(earnAmountInput.value);
+  const earnLi = document.createElement("li");
+  const earnDiv = document.createElement("div");
+  const editEarningButton = document.createElement("button");
+  const deleteEarningButton = document.createElement("button");
   const editEarnInput = document.createElement("input");
-  const editAmountInput = document.createElement("input");
-  const saveButton = document.createElement("button");
+  const editEarnAmountInput = document.createElement("input");
+  const saveEarningButton = document.createElement("button");
 
-  let originalAmount = amount;
+  let originalAmount = earnAmount;
 
-  li.classList.add("list");
-  newDiv.classList.add("btns");
-  editButton.classList.add("libutton");
-  editButton.innerText = "EDYTUJ";
-  deleteButton.classList.add("libutton");
-  deleteButton.innerText = "USUŃ";
+  earnLi.classList.add("list");
+  earnDiv.classList.add("btns");
+  editEarningButton.classList.add("libutton");
+  editEarningButton.innerText = "EDYTUJ";
+  deleteEarningButton.classList.add("libutton");
+  deleteEarningButton.innerText = "USUŃ";
 
-  newDiv.appendChild(editButton);
-  newDiv.appendChild(deleteButton);
+  earnDiv.appendChild(editEarningButton);
+  earnDiv.appendChild(deleteEarningButton);
 
-  li.innerHTML = `${earn} - ${amount} zł`;
-  li.appendChild(newDiv);
+  earnLi.innerHTML = `${earn} - ${earnAmount} zł`;
+  earnLi.appendChild(earnDiv);
 
-  earnCont.appendChild(li);
+  earnCont.appendChild(earnLi);
 
-  deleteButton.addEventListener("click", () => {
-    li.remove();
-    updateSum(-originalAmount);
+  deleteEarningButton.addEventListener("click", () => {
+    earnLi.remove();
+    updateSumEarn(-originalAmount);
   });
 
-  editButton.addEventListener("click", () => {
-    li.innerHTML = "";
+  editEarningButton.addEventListener("click", () => {
+    earnLi.innerHTML = "";
 
     editEarnInput.value = earn;
-    editAmountInput.value = originalAmount;
+    editEarnAmountInput.value = originalAmount;
 
-    saveButton.innerText = "ZAPISZ";
-    saveButton.classList.add("libutton");
+    saveEarningButton.innerText = "ZAPISZ";
+    saveEarningButton.classList.add("libutton");
 
-    li.appendChild(editEarnInput);
-    li.appendChild(editAmountInput);
-    li.appendChild(saveButton);
+    earnLi.appendChild(editEarnInput);
+    earnLi.appendChild(editEarnAmountInput);
+    earnLi.appendChild(saveEarningButton);
 
     editEarnInput.classList.add("e-input");
-    editAmountInput.classList.add("e-amount");
-    saveButton.classList.add("e-button");
+    editEarnAmountInput.classList.add("e-amount");
+    saveEarningButton.classList.add("e-button");
 
-    saveButton.addEventListener("click", () => {
+    saveEarningButton.addEventListener("click", () => {
       const updatedEarn = editEarnInput.value;
-      const updatedAmount = Number(editAmountInput.value);
+      const updatedAmountEarn = Number(editEarnAmountInput.value);
 
-      li.innerHTML = `${updatedEarn} - ${updatedAmount} zł`;
-      li.appendChild(newDiv);
+      earnLi.innerHTML = `${updatedEarn} - ${updatedAmountEarn} zł`;
+      earnLi.appendChild(earnDiv);
 
-      updateSum(updatedAmount - originalAmount);
+      updateSumEarn(updatedAmountEarn - originalAmount);
 
-      originalAmount = updatedAmount;
+      originalAmount = updatedAmountEarn;
     });
   });
 
-  updateSum(originalAmount);
+  updateSumEarn(originalAmount);
 
   earnInput.value = "";
-  amountInput.value = "";
+  earnAmountInput.value = "";
 };
 
-let currentSum2 = 0;
-const sum2 = document.querySelector("#sum2");
+let currentSumSpendings = 0;
+const sumSpendings = document.querySelector("#spendings-sum");
 
-const updateSum2 = (amount2) => {
-  currentSum2 += amount2;
-  sum2.innerHTML = currentSum2;
+const updateSumSpend = (spendAmount) => {
+  currentSumSpendings += spendAmount;
+  sumSpendings.innerHTML = currentSumSpendings;
   updateTotal();
 };
 
 const newSpending = () => {
   const spendCont = document.querySelector("#pspend");
   const spendInput = document.querySelector("#spendings");
-  const amount2Input = document.querySelector("#amount2");
+  const spendAmountInput = document.querySelector("#spend-amount");
   const spend = spendInput.value;
-  const amount2 = Number(amount2Input.value);
-  const li2 = document.createElement("li");
-  const newDiv2 = document.createElement("div");
-  const editButton2 = document.createElement("button");
-  const deleteButton2 = document.createElement("button");
+  const spendAmount = Number(spendAmountInput.value);
+  const spendLi = document.createElement("li");
+  const spendDiv = document.createElement("div");
+  const editSpendingButton = document.createElement("button");
+  const deleteSpendingButton = document.createElement("button");
   const editSpendInput = document.createElement("input");
-  const editAmount2Input = document.createElement("input");
-  const saveButton2 = document.createElement("button");
+  const editSpendAmountInput = document.createElement("input");
+  const saveSpendingButton = document.createElement("button");
 
-  let originalSpend = amount2;
+  let originalSpend = spendAmount;
 
-  li2.classList.add("list");
-  newDiv2.classList.add("btns");
-  editButton2.classList.add("libutton");
-  editButton2.innerText = "EDYTUJ";
-  deleteButton2.classList.add("libutton");
-  deleteButton2.innerText = "USUŃ";
+  spendLi.classList.add("list");
+  spendDiv.classList.add("btns");
+  editSpendingButton.classList.add("libutton");
+  editSpendingButton.innerText = "EDYTUJ";
+  deleteSpendingButton.classList.add("libutton");
+  deleteSpendingButton.innerText = "USUŃ";
 
-  newDiv2.appendChild(editButton2);
-  newDiv2.appendChild(deleteButton2);
+  spendDiv.appendChild(editSpendingButton);
+  spendDiv.appendChild(deleteSpendingButton);
 
-  li2.innerHTML = `${spend} - ${amount2} zł`;
-  li2.appendChild(newDiv2);
-  spendCont.appendChild(li2);
+  spendLi.innerHTML = `${spend} - ${spendAmount} zł`;
+  spendLi.appendChild(spendDiv);
+  spendCont.appendChild(spendLi);
 
-  deleteButton2.addEventListener("click", () => {
-    li2.remove();
-    updateSum2(-originalSpend);
+  deleteSpendingButton.addEventListener("click", () => {
+    spendLi.remove();
+    updateSumSpend(-originalSpend);
   });
 
-  editButton2.addEventListener("click", () => {
-    li2.innerHTML = "";
+  editSpendingButton.addEventListener("click", () => {
+    spendLi.innerHTML = "";
 
     editSpendInput.value = spend;
-    editAmount2Input.value = originalSpend;
+    editSpendAmountInput.value = originalSpend;
 
-    saveButton2.innerText = "ZAPISZ";
-    saveButton2.classList.add("libutton");
+    saveSpendingButton.innerText = "ZAPISZ";
+    saveSpendingButton.classList.add("libutton");
 
-    li2.appendChild(editSpendInput);
-    li2.appendChild(editAmount2Input);
-    li2.appendChild(saveButton2);
+    spendLi.appendChild(editSpendInput);
+    spendLi.appendChild(editSpendAmountInput);
+    spendLi.appendChild(saveSpendingButton);
 
     editSpendInput.classList.add("e-input");
-    editAmount2Input.classList.add("e-amount");
-    saveButton2.classList.add("e-button");
+    editSpendAmountInput.classList.add("e-amount");
+    saveSpendingButton.classList.add("e-button");
 
-    saveButton2.addEventListener("click", () => {
+    saveSpendingButton.addEventListener("click", () => {
       const updatedSpend = editSpendInput.value;
-      const updatedAmount2 = Number(editAmount2Input.value);
+      const updatedAmountSpend = Number(editSpendAmountInput.value);
 
-      li2.innerHTML = `${updatedSpend} - ${updatedAmount2} zł`;
-      li2.appendChild(newDiv2);
+      spendLi.innerHTML = `${updatedSpend} - ${updatedAmountSpend} zł`;
+      spendLi.appendChild(spendDiv);
 
-      updateSum2(updatedAmount2 - originalSpend);
+      updateSumSpend(updatedAmountSpend - originalSpend);
 
-      originalSpend = updatedAmount2;
+      originalSpend = updatedAmountSpend;
     });
   });
 
-  updateSum2(originalSpend);
+  updateSumSpend(originalSpend);
 
   spendInput.value = "";
-  amount2Input.value = "";
+  spendAmountInput.value = "";
 };
 
 const updateTotal = () => {
-  const total = parseFloat(currentSum - currentSum2);
+  const total = parseFloat(currentSumEarnings - currentSumSpendings);
 
   if (total > 0) {
     totalElement.innerHTML = `Możesz jeszcze wydać ${total} złotych`;
