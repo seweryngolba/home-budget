@@ -1,0 +1,396 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-bg-color: #cccccc;
+  --primaryColor: #d9d9d9;
+  --secondaryColor: #909090;
+  --accentColor: #3f3f3f;
+}
+
+body {
+  background: var(--main-bg-color);
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  max-width: 860px;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.logo-image {
+  width: 20px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  gap: 5px;
+  margin-left: -34px;
+}
+
+.logo-text {
+  font-size: 20px;
+  width: 50px;
+  line-height: 18px;
+}
+
+.balance-display {
+  width: 280px;
+  height: 60px;
+  border-radius: 10px;
+  background: var(--primaryColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.red {
+  border: 2px solid red;
+  background: rgba(255, 0, 0, 0.219);
+}
+
+.green {
+  border: 2px solid green;
+  background: rgba(0, 128, 0, 0.219);
+}
+
+.balance-text {
+  font-size: 12px;
+  width: 140px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spendings-and-earnings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.earnings-top-box,
+.spendings-top-box {
+  height: 60px;
+  width: 280px;
+  background: var(--secondaryColor);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.earnings-title,
+.spendings-title {
+  margin-left: 6px;
+  padding: 4px 0;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+input:focus,
+input:valid {
+  padding-left: 6px;
+}
+
+.earning-name,
+.spending-name {
+  width: 140px;
+  height: 25px;
+  border-radius: 10px;
+  border: none;
+}
+
+.e-input {
+  width: 120px;
+  height: 25px;
+}
+
+.earning-amount,
+.spending-amount {
+  width: 60px;
+  height: 25px;
+  border-radius: 10px;
+  border: none;
+}
+
+.e-amount {
+  width: 60px;
+  height: 25px;
+}
+
+.earning-name::placeholder,
+.spending-name::placeholder,
+.earning-amount::placeholder,
+.spending-amount::placeholder {
+  font-size: 12px;
+}
+
+.earnings-forms,
+.spendings-forms {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.add-position-button {
+  width: 60px;
+  height: 25px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accentColor);
+  color: #fff;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.new-earnings-added,
+.new-spendings-added {
+  width: 280px;
+  height: 260px;
+  background: var(--primaryColor);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.list {
+  font-size: 10px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 260px;
+  margin-left: 10px;
+  padding-top: 10px;
+}
+
+.libutton {
+  width: 50px;
+  height: 20px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accentColor);
+  color: #fff;
+  font-size: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.earning-list {
+  padding-top: 6px;
+}
+
+.summary {
+  font-size: 12px;
+  margin-left: 6px;
+  padding-bottom: 10px;
+}
+
+.earnings-box,
+.spendings-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.btns {
+  margin-right: -4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
+
+@media only screen and (min-width: 768px) {
+  .logo-image {
+    width: 30px;
+  }
+  .logo {
+    margin-left: -64px;
+  }
+  .logo-text {
+    font-size: 28px;
+    line-height: 26px;
+  }
+  .spendings-and-earnings {
+    flex-direction: row;
+  }
+  .balance-display {
+    width: 650px;
+  }
+
+  .container {
+    height: 100vh;
+    justify-content: center;
+  }
+
+  .balance-text {
+    font-size: 16px;
+    width: 500px;
+  }
+  .earnings-top-box,
+  .spendings-top-box {
+    height: 70px;
+    width: 320px;
+  }
+  .earnings-title,
+  .spendings-title {
+    font-size: 14px;
+  }
+  .earning-name,
+  .spending-name {
+    width: 160px;
+    height: 30px;
+  }
+  .earning-amount,
+  .spending-amount {
+    width: 80px;
+    height: 30px;
+  }
+  .earning-name::placeholder,
+  .spending-name::placeholder,
+  .earning-amount::placeholder,
+  .spending-amount::placeholder {
+    font-size: 14px;
+  }
+  .add-position-button {
+    height: 30px;
+    font-size: 12px;
+  }
+  .new-earnings-added,
+  .new-spendings-added {
+    width: 320px;
+    height: 300px;
+  }
+  .list {
+    font-size: 12px;
+    width: 320px;
+  }
+  .libutton {
+    width: 60px;
+    height: 30px;
+    font-size: 10px;
+  }
+  .btns {
+    margin-right: 15px;
+  }
+  .summary {
+    font-size: 14px;
+  }
+  .e-input {
+    width: 150px;
+    height: 25px;
+  }
+  .e-amount {
+    width: 74px;
+    height: 25px;
+  }
+  .e-button {
+    margin-right: 16px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .logo-image {
+    width: 40px;
+  }
+  .logo-text {
+    font-size: 36px;
+    line-height: 34px;
+  }
+  .balance-display {
+    width: 800px;
+    height: 80px;
+  }
+  .balance-text {
+    font-size: 24px;
+    width: 700px;
+  }
+  .earnings-top-box,
+  .spendings-top-box {
+    height: 90px;
+    width: 395px;
+  }
+  .earnings-title,
+  .spendings-title {
+    font-size: 18px;
+    margin-left: 10px;
+  }
+  .earning-name,
+  .spending-name {
+    width: 180px;
+    height: 40px;
+  }
+  .earning-amount,
+  .spending-amount {
+    width: 90px;
+    height: 40px;
+  }
+  .earning-name::placeholder,
+  .spending-name::placeholder,
+  .earning-amount::placeholder,
+  .spending-amount::placeholder {
+    font-size: 16px;
+  }
+  .add-position-button {
+    height: 40px;
+    width: 80px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .new-earnings-added,
+  .new-spendings-added {
+    width: 395px;
+    height: 400px;
+  }
+  .list {
+    font-size: 14px;
+    width: 350px;
+  }
+  .libutton {
+    width: 64px;
+    height: 34px;
+    font-size: 12px;
+  }
+  .btns {
+    margin-right: -24px;
+  }
+  .summary {
+    font-size: 18px;
+    margin-left: 10px;
+  }
+  .earnings-forms,
+  .spendings-forms {
+    gap: 12px;
+  }
+  .logo {
+    margin-left: -100px;
+    padding-bottom: 10px;
+  }
+  .e-input {
+    width: 180px;
+    height: 25px;
+  }
+  .e-amount {
+    width: 90px;
+    height: 25px;
+  }
+  .e-button {
+    margin-right: -10px;
+  }
+}

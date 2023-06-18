@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style-copy.css" />
+    <title>Home Budget Copy</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">
+        <img class="logo-image" src="./assets/Subtract.png" />
+        <h1 class="logo-text">HOME BUDGET</h1>
+      </div>
+      <div id="moneydisplay" class="balance-display">
+        <h2 id="total" class="balance-text">Możesz wydać 0 zł</h2>
+      </div>
+      <div class="spendings-and-earnings">
+        <div class="earnings-box">
+          <div class="earnings-top-box">
+            <h3 class="earnings-title">PRZYCHODY</h3>
+            <div class="earnings-forms">
+              <input
+                id="earnings"
+                class="earning-name"
+                type="text"
+                placeholder="Nazwa przychodu"
+              />
+              <input
+                id="amount"
+                class="earning-amount"
+                type="number"
+                placeholder="Kwota"
+              />
+              <button id="btnearn" class="add-position-button">DODAJ</button>
+            </div>
+          </div>
+          <div class="new-earnings-added">
+            <ul id="learn" class="earning-list"></ul>
+            <h2 class="summary">
+              Suma przychodów: <span id="sum1">0</span> zł
+            </h2>
+          </div>
+        </div>
+        <div class="spendings-box">
+          <div class="spendings-top-box">
+            <h3 class="spendings-title">WYDATKI</h3>
+            <div class="spendings-forms">
+              <input
+                id="spendings"
+                class="spending-name"
+                type="text"
+                placeholder="Nazwa wydatku"
+              />
+              <input
+                id="amount2"
+                class="spending-amount"
+                type="number"
+                placeholder="Kwota"
+              />
+              <button id="btnspend" class="add-position-button">DODAJ</button>
+            </div>
+          </div>
+          <div class="new-spendings-added">
+            <ul id="pspend" class="earning-list"></ul>
+            <h2 class="summary">Suma wydatków: <span id="sum2">0</span> zł</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script-copy.js"></script>
+  </body>
+</html>
