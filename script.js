@@ -165,15 +165,19 @@ const newSpending = () => {
 };
 
 const updateTotal = () => {
-  const total = currentSum - currentSum2;
-  totalElement.innerHTML = `Możesz wydać ${total} zł`;
-
-  moneyBorder.classList.remove("green", "red");
+  const total = parseFloat(currentSum - currentSum2);
 
   if (total > 0) {
+    totalElement.innerHTML = `Możesz jeszcze wydać ${total} złotych`;
+    moneyBorder.classList.remove("red");
     moneyBorder.classList.add("green");
-  } else if (total < 0) {
+  } else if (total === 0) {
+    totalElement.innerHTML = `Bilans wynosi 0 złotych`;
+    moneyBorder.classList.remove("red", "green");
+  } else {
+    totalElement.innerHTML = `Bilans jest ujemny. Jesteś na minusie ${total} złotych`;
     moneyBorder.classList.add("red");
+    moneyBorder.classList.remove("green");
   }
 };
 
