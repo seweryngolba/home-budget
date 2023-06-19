@@ -3,179 +3,227 @@ const spendButton = document.querySelector("#btnspend");
 const totalElement = document.querySelector("#total");
 const moneyBorder = document.querySelector("#moneydisplay");
 
-let currentSum = 0;
-const sum = document.querySelector("#sum1");
+let currentSumEarnings = 0;
+const sumEarnings = document.querySelector("#earnings-sum");
 
-const updateSum = (amount) => {
-  currentSum += amount;
-  sum.innerHTML = currentSum;
+const updateSumEarn = (earnAmount) => {
+  currentSumEarnings += parseFloat(earnAmount);
+  sumEarnings.textContent = currentSumEarnings.toFixed(2);
   updateTotal();
 };
 
 const newEarning = () => {
   const earnCont = document.querySelector("#learn");
   const earnInput = document.querySelector("#earnings");
-  const amountInput = document.querySelector("#amount");
+  const earnAmountInput = document.querySelector("#earn-amount");
   const earn = earnInput.value;
-  const amount = Number(amountInput.value);
-  const li = document.createElement("li");
-  const newDiv = document.createElement("div");
-  const editButton = document.createElement("button");
-  const deleteButton = document.createElement("button");
+  const earnAmount = parseFloat(earnAmountInput.value.replace(",", "."));
+
+  if (!earn || earnAmount <= 0 || isNaN(earnAmount)) {
+    alert(
+      "Sprawdź czy nazwa oraz kwota przychodu została wpisana. Kwota przychodu musi być liczbą wiekszą od zera"
+    );
+    earnInput.value = "";
+    earnAmountInput.value = "";
+    return;
+  }
+
+  const earnLi = document.createElement("li");
+  const earnDiv = document.createElement("div");
+  const editEarningButton = document.createElement("button");
+  const deleteEarningButton = document.createElement("button");
   const editEarnInput = document.createElement("input");
-  const editAmountInput = document.createElement("input");
-  const saveButton = document.createElement("button");
+  const editEarnAmountInput = document.createElement("input");
+  const saveEarningButton = document.createElement("button");
 
-  let originalAmount = amount;
+  let originalAmount = earnAmount;
 
-  li.classList.add("list");
-  newDiv.classList.add("btns");
-  editButton.classList.add("libutton");
-  editButton.innerText = "EDYTUJ";
-  deleteButton.classList.add("libutton");
-  deleteButton.innerText = "USUŃ";
+  earnLi.classList.add("list");
+  earnDiv.classList.add("btns");
+  editEarningButton.classList.add("libutton");
+  editEarningButton.textContent = "EDYTUJ";
+  deleteEarningButton.classList.add("libutton");
+  deleteEarningButton.textContent = "USUŃ";
 
-  newDiv.appendChild(editButton);
-  newDiv.appendChild(deleteButton);
+  earnDiv.appendChild(editEarningButton);
+  earnDiv.appendChild(deleteEarningButton);
 
-  li.innerHTML = `${earn} - ${amount} zł`;
-  li.appendChild(newDiv);
+  earnLi.textContent = `${earn} - ${earnAmount.toFixed(2)} zł`;
+  earnLi.appendChild(earnDiv);
 
-  earnCont.appendChild(li);
+  earnCont.appendChild(earnLi);
 
-  deleteButton.addEventListener("click", () => {
-    li.remove();
-    updateSum(-originalAmount);
+  deleteEarningButton.addEventListener("click", () => {
+    earnLi.remove();
+    updateSumEarn(-originalAmount);
   });
 
-  editButton.addEventListener("click", () => {
-    li.innerHTML = "";
+  editEarningButton.addEventListener("click", () => {
+    earnLi.textContent = "";
 
     editEarnInput.value = earn;
-    editAmountInput.value = originalAmount;
+    editEarnAmountInput.value = originalAmount;
 
-    saveButton.innerText = "ZAPISZ";
-    saveButton.classList.add("libutton");
+    saveEarningButton.textContent = "ZAPISZ";
+    saveEarningButton.classList.add("libutton");
 
-    li.appendChild(editEarnInput);
-    li.appendChild(editAmountInput);
-    li.appendChild(saveButton);
+    earnLi.appendChild(editEarnInput);
+    earnLi.appendChild(editEarnAmountInput);
+    earnLi.appendChild(saveEarningButton);
 
     editEarnInput.classList.add("e-input");
-    editAmountInput.classList.add("e-amount");
-    saveButton.classList.add("e-button");
+    editEarnAmountInput.classList.add("e-amount");
+    saveEarningButton.classList.add("e-button");
 
-    saveButton.addEventListener("click", () => {
+    saveEarningButton.addEventListener("click", () => {
       const updatedEarn = editEarnInput.value;
-      const updatedAmount = Number(editAmountInput.value);
+      const updatedAmountEarn = parseFloat(
+        editEarnAmountInput.value.replace(",", ".")
+      );
 
-      li.innerHTML = `${updatedEarn} - ${updatedAmount} zł`;
-      li.appendChild(newDiv);
+      if (!updatedEarn || updatedAmountEarn <= 0 || isNaN(updatedAmountEarn)) {
+        alert(
+          "Sprawdź czy nazwa oraz kwota przychodu została wpisana. Kwota przychodu musi być liczbą wiekszą od zera"
+        );
+        return;
+      }
 
-      updateSum(updatedAmount - originalAmount);
+      earnLi.textContent = `${updatedEarn} - ${updatedAmountEarn} zł`;
+      earnLi.appendChild(earnDiv);
 
-      originalAmount = updatedAmount;
+      updateSumEarn(updatedAmountEarn - originalAmount);
+
+      originalAmount = updatedAmountEarn;
     });
   });
 
-  updateSum(originalAmount);
+  updateSumEarn(originalAmount);
 
   earnInput.value = "";
-  amountInput.value = "";
+  earnAmountInput.value = "";
 };
 
-let currentSum2 = 0;
-const sum2 = document.querySelector("#sum2");
+let currentSumSpendings = 0;
+const sumSpendings = document.querySelector("#spendings-sum");
 
-const updateSum2 = (amount2) => {
-  currentSum2 += amount2;
-  sum2.innerHTML = currentSum2;
+const updateSumSpend = (spendAmount) => {
+  currentSumSpendings += parseFloat(spendAmount);
+  sumSpendings.textContent = currentSumSpendings.toFixed(2);
   updateTotal();
 };
 
 const newSpending = () => {
   const spendCont = document.querySelector("#pspend");
   const spendInput = document.querySelector("#spendings");
-  const amount2Input = document.querySelector("#amount2");
+  const spendAmountInput = document.querySelector("#spend-amount");
   const spend = spendInput.value;
-  const amount2 = Number(amount2Input.value);
-  const li2 = document.createElement("li");
-  const newDiv2 = document.createElement("div");
-  const editButton2 = document.createElement("button");
-  const deleteButton2 = document.createElement("button");
+  const spendAmount = parseFloat(spendAmountInput.value.replace(",", "."));
+
+  if (!spend || spendAmount <= 0 || isNaN(spendAmount)) {
+    alert(
+      "Sprawdź czy nazwa oraz kwota wydatku została wpisana. Kwota wydatku musi być liczbą wiekszą od zera"
+    );
+    spendInput.value = "";
+    spendAmountInput.value = "";
+    return;
+  }
+
+  const spendLi = document.createElement("li");
+  const spendDiv = document.createElement("div");
+  const editSpendingButton = document.createElement("button");
+  const deleteSpendingButton = document.createElement("button");
   const editSpendInput = document.createElement("input");
-  const editAmount2Input = document.createElement("input");
-  const saveButton2 = document.createElement("button");
+  const editSpendAmountInput = document.createElement("input");
+  const saveSpendingButton = document.createElement("button");
 
-  let originalSpend = amount2;
+  let originalSpend = spendAmount;
 
-  li2.classList.add("list");
-  newDiv2.classList.add("btns");
-  editButton2.classList.add("libutton");
-  editButton2.innerText = "EDYTUJ";
-  deleteButton2.classList.add("libutton");
-  deleteButton2.innerText = "USUŃ";
+  spendLi.classList.add("list");
+  spendDiv.classList.add("btns");
+  editSpendingButton.classList.add("libutton");
+  editSpendingButton.textContent = "EDYTUJ";
+  deleteSpendingButton.classList.add("libutton");
+  deleteSpendingButton.textContent = "USUŃ";
 
-  newDiv2.appendChild(editButton2);
-  newDiv2.appendChild(deleteButton2);
+  spendDiv.appendChild(editSpendingButton);
+  spendDiv.appendChild(deleteSpendingButton);
 
-  li2.innerHTML = `${spend} - ${amount2} zł`;
-  li2.appendChild(newDiv2);
-  spendCont.appendChild(li2);
+  spendLi.textContent = `${spend} - ${spendAmount.toFixed(2)} zł`;
+  spendLi.appendChild(spendDiv);
+  spendCont.appendChild(spendLi);
 
-  deleteButton2.addEventListener("click", () => {
-    li2.remove();
-    updateSum2(-originalSpend);
+  deleteSpendingButton.addEventListener("click", () => {
+    spendLi.remove();
+    updateSumSpend(-originalSpend);
   });
 
-  editButton2.addEventListener("click", () => {
-    li2.innerHTML = "";
+  editSpendingButton.addEventListener("click", () => {
+    spendLi.textContent = "";
 
     editSpendInput.value = spend;
-    editAmount2Input.value = originalSpend;
+    editSpendAmountInput.value = originalSpend;
 
-    saveButton2.innerText = "ZAPISZ";
-    saveButton2.classList.add("libutton");
+    saveSpendingButton.textContent = "ZAPISZ";
+    saveSpendingButton.classList.add("libutton");
 
-    li2.appendChild(editSpendInput);
-    li2.appendChild(editAmount2Input);
-    li2.appendChild(saveButton2);
+    spendLi.appendChild(editSpendInput);
+    spendLi.appendChild(editSpendAmountInput);
+    spendLi.appendChild(saveSpendingButton);
 
     editSpendInput.classList.add("e-input");
-    editAmount2Input.classList.add("e-amount");
-    saveButton2.classList.add("e-button");
+    editSpendAmountInput.classList.add("e-amount");
+    saveSpendingButton.classList.add("e-button");
 
-    saveButton2.addEventListener("click", () => {
+    saveSpendingButton.addEventListener("click", () => {
       const updatedSpend = editSpendInput.value;
-      const updatedAmount2 = Number(editAmount2Input.value);
+      const updatedAmountSpend = parseFloat(
+        editSpendAmountInput.value.replace(",", ".")
+      );
 
-      li2.innerHTML = `${updatedSpend} - ${updatedAmount2} zł`;
-      li2.appendChild(newDiv2);
+      if (
+        !updatedSpend ||
+        updatedAmountSpend <= 0 ||
+        isNaN(updatedAmountSpend)
+      ) {
+        alert(
+          "Sprawdź czy nazwa oraz kwota wydatku została wpisana. Kwota wydatku musi być liczbą wiekszą od zera"
+        );
+        return;
+      }
 
-      updateSum2(updatedAmount2 - originalSpend);
+      spendLi.textContent = `${updatedSpend} - ${updatedAmountSpend.toFixed(
+        2
+      )} zł`;
+      spendLi.appendChild(spendDiv);
 
-      originalSpend = updatedAmount2;
+      updateSumSpend(updatedAmountSpend - originalSpend);
+
+      originalSpend = updatedAmountSpend;
     });
   });
 
-  updateSum2(originalSpend);
+  updateSumSpend(originalSpend);
 
   spendInput.value = "";
-  amount2Input.value = "";
+  spendAmountInput.value = "";
 };
 
 const updateTotal = () => {
-  const total = parseFloat(currentSum - currentSum2);
+  const total = parseFloat(currentSumEarnings - currentSumSpendings);
 
   if (total > 0) {
-    totalElement.innerHTML = `Możesz jeszcze wydać ${total} złotych`;
+    totalElement.textContent = `Możesz jeszcze wydać ${total.toFixed(
+      2
+    )} złotych`;
     moneyBorder.classList.remove("red");
     moneyBorder.classList.add("green");
   } else if (total === 0) {
-    totalElement.innerHTML = `Bilans wynosi 0 złotych`;
+    totalElement.textContent = `Bilans wynosi 0 złotych`;
     moneyBorder.classList.remove("red", "green");
   } else {
-    totalElement.innerHTML = `Bilans jest ujemny. Jesteś na minusie ${total} złotych`;
+    totalElement.textContent = `Bilans jest ujemny. Jesteś na minusie ${Math.abs(
+      total
+    ).toFixed(2)} złotych`;
     moneyBorder.classList.add("red");
     moneyBorder.classList.remove("green");
   }

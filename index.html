@@ -16,41 +16,63 @@
   <body>
     <div class="container">
       <div class="logo">
-        <img src="./assets/Subtract.png" />
+        <img class="logo-image" src="./assets/Subtract.png" />
         <h1 class="logo-text">HOME BUDGET</h1>
       </div>
-      <div id="moneydisplay" class="warning">
-        <h2 id="total" class="wrn-text">Możesz wydać 0 zł</h2>
+      <div id="moneydisplay" class="balance-display">
+        <h2 id="total" class="balance-text">Bilans wynosi 0 złotych</h2>
       </div>
-      <div class="inpts">
-        <div class="left">
-          <div class="ltop">
-            <h3 class="lname">PRZYCHODY</h3>
-            <div class="l-inputs">
-              <input id="earnings" type="text" placeholder="Nazwa przychodu" />
-              <input id="amount" type="number" placeholder="Kwota" />
-              <button id="btnearn" class="add">DODAJ</button>
+      <div class="spendings-and-earnings">
+        <div class="earnings-box">
+          <div class="earnings-top-box">
+            <h3 class="earnings-title">PRZYCHODY</h3>
+            <div class="earnings-forms">
+              <input
+                id="earnings"
+                class="earning-name"
+                type="text"
+                placeholder="Nazwa przychodu"
+              />
+              <input
+                id="earn-amount"
+                class="earning-amount"
+                type="number"
+                placeholder="Kwota"
+              />
+              <button id="btnearn" class="add-position-button">DODAJ</button>
             </div>
           </div>
-          <div class="lbottom">
+          <div class="new-earnings-added">
             <ul id="learn" class="earning-list"></ul>
             <h2 class="summary">
-              Suma przychodów: <span id="sum1">0</span> zł
+              Suma przychodów: <span id="earnings-sum">0</span> zł
             </h2>
           </div>
         </div>
-        <div class="right">
-          <div class="rtop">
-            <h3 class="rname">WYDATKI</h3>
-            <div class="r-inputs">
-              <input id="spendings" type="text" placeholder="Nazwa wydatku" />
-              <input id="amount2" type="number" placeholder="Kwota" />
-              <button id="btnspend" class="add">DODAJ</button>
+        <div class="spendings-box">
+          <div class="spendings-top-box">
+            <h3 class="spendings-title">WYDATKI</h3>
+            <div class="spendings-forms">
+              <input
+                id="spendings"
+                class="spending-name"
+                type="text"
+                placeholder="Nazwa wydatku"
+              />
+              <input
+                id="spend-amount"
+                class="spending-amount"
+                type="number"
+                placeholder="Kwota"
+              />
+              <button id="btnspend" class="add-position-button">DODAJ</button>
             </div>
           </div>
-          <div class="rbottom">
+          <div class="new-spendings-added">
             <ul id="pspend" class="earning-list"></ul>
-            <h2 class="summary">Suma wydatków: <span id="sum2">0</span> zł</h2>
+            <h2 class="summary">
+              Suma wydatków: <span id="spendings-sum">0</span> zł
+            </h2>
           </div>
         </div>
       </div>
