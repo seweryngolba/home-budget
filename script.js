@@ -36,6 +36,7 @@ const newEarning = () => {
   const editEarnAmountInput = document.createElement("input");
   const saveEarningButton = document.createElement("button");
 
+  let originalEarn = earn;
   let originalAmount = earnAmount;
 
   earnLi.classList.add("list");
@@ -61,7 +62,7 @@ const newEarning = () => {
   editEarningButton.addEventListener("click", () => {
     earnLi.textContent = "";
 
-    editEarnInput.value = earn;
+    editEarnInput.value = originalEarn;
     editEarnAmountInput.value = originalAmount;
 
     saveEarningButton.textContent = "ZAPISZ";
@@ -94,6 +95,7 @@ const newEarning = () => {
       updateSumEarn(updatedAmountEarn - originalAmount);
 
       originalAmount = updatedAmountEarn;
+      originalEarn = updatedEarn;
     });
   });
 
@@ -136,7 +138,8 @@ const newSpending = () => {
   const editSpendAmountInput = document.createElement("input");
   const saveSpendingButton = document.createElement("button");
 
-  let originalSpend = spendAmount;
+  let originalSpend = spend;
+  let originalAmountSpend = spendAmount;
 
   spendLi.classList.add("list");
   spendDiv.classList.add("btns");
@@ -154,14 +157,14 @@ const newSpending = () => {
 
   deleteSpendingButton.addEventListener("click", () => {
     spendLi.remove();
-    updateSumSpend(-originalSpend);
+    updateSumSpend(-originalAmountSpend);
   });
 
   editSpendingButton.addEventListener("click", () => {
     spendLi.textContent = "";
 
-    editSpendInput.value = spend;
-    editSpendAmountInput.value = originalSpend;
+    editSpendInput.value = originalSpend;
+    editSpendAmountInput.value = originalAmountSpend;
 
     saveSpendingButton.textContent = "ZAPISZ";
     saveSpendingButton.classList.add("libutton");
@@ -196,13 +199,14 @@ const newSpending = () => {
       )} zł`;
       spendLi.appendChild(spendDiv);
 
-      updateSumSpend(updatedAmountSpend - originalSpend);
+      updateSumSpend(updatedAmountSpend - originalAmountSpend);
 
-      originalSpend = updatedAmountSpend;
+      originalAmountSpend = updatedAmountSpend;
+      originalSpend = updatedSpend;
     });
   });
 
-  updateSumSpend(originalSpend);
+  updateSumSpend(originalAmountSpend);
 
   spendInput.value = "";
   spendAmountInput.value = "";
